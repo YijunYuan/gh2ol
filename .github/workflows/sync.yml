@@ -25,4 +25,4 @@ jobs:
           pip install -e ./overleaf-sync-github-action
           ols login -b64i $TOKEN
       - uses: actions/checkout@v4
-      - run: ols -l -i .gitignore --store-path $HOME/.olauth
+      - run: ls -a $HOME

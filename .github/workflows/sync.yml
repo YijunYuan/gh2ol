@@ -20,3 +20,7 @@ jobs:
           unzip -o github-action.zip
           cd overleaf-sync-github-action
           pip install -e .
+          cd ../
+          rm -rf overleaf-sync-github-action
+          rm github-action.zip
+          ls

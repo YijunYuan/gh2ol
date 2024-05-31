@@ -25,4 +25,10 @@ jobs:
           pip install -e ./overleaf-sync-github-action
           ols login -b64i $TOKEN
       - uses: actions/checkout@v4
-      - run: ols -l -i .gitignore --store-path $HOME/.olauth
+      - name: Sync file to overleaf
+        env:
+          OVERLEAF_PROJECT_NAME: ${{ github.event.repository.name }}
+          OVERLEAF_DELETE_OPTION: "d"
+          OVERLEAF_KEEP_OLD: False
+        run: |
+          ols -l -i .gitignore --store-path $HOME/.olauth -n $OVERLEAF_PROJECT_NAME -dc $OVERLEAF_DELETE_OPTION -ko $OVERLEAF_KEEP_OLD

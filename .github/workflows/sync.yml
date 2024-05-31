@@ -20,4 +20,5 @@ jobs:
           unzip -o github-action.zip
           rm github-action.zip
           pip install -e ./overleaf-sync-github-action
-          ls
+          ls $GITHUB_WORKSPACE
+          echo $OVERLEAF_CREDENTIALS_BASE64

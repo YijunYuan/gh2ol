@@ -6,18 +6,19 @@ on:
         required: true
         default: 'warning'
 jobs:
-  build:
+  sync:
     permissions:
         contents: read
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11.9'
       - run: |
-          wget https://github.com/YijunYuan/overleaf-sync/archive/refs/heads/github-action.zip
+          wget https://github.com/YijunYuan/overleaf-sync/archive/refs/heads/github-action.zip -P $HOME
+          cd $HOME
           unzip -o github-action.zip
           rm github-action.zip
           pip install -e ./overleaf-sync-github-action
+      - uses: actions/checkout@v4
       - run: cat test.tex

@@ -16,6 +16,7 @@ jobs:
         with:
           python-version: '3.11.9'
       - run: |
-          git clone -b github-action git@github.com:YijunYuan/overleaf-sync.git
-          cd overleaf-sync
+          wget https://github.com/YijunYuan/overleaf-sync/archive/refs/heads/github-action.zip
+          unzip -o github-action.zip
+          cd overleaf-sync-github-action
           pip install -e .

@@ -32,3 +32,6 @@ jobs:
           OVERLEAF_KEEP_OLD: False
         run: |
           ols -l -i .gitignore --store-path $HOME/.olauth -n $OVERLEAF_PROJECT_NAME -dc $OVERLEAF_DELETE_OPTION -ko $OVERLEAF_KEEP_OLD
+      - name: Clean up
+        run: |
+          rm -f $HOME/.olauth
